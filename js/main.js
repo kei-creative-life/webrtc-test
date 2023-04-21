@@ -16,8 +16,34 @@ const constraints = window.constraints = {
 function handleSuccess(stream) {
   const video = document.querySelector('video');
   const videoTracks = stream.getVideoTracks();
-  console.log('Got stream with constraints:', constraints);
-  console.log(`Using video device: ${videoTracks[0].label}`);
+
+  console.log('stream',stream)
+  console.log('videoTracks',videoTracks)
+  
+  video.addEventListener('abort', () => console.log('video abort'))
+  video.addEventListener('canplay', () => console.log('video canplay'))
+  video.addEventListener('canplaythrough', () => console.log('video canplaythrough'))
+  video.addEventListener('durationchange', () => console.log('video durationchange'))
+  video.addEventListener('emptied', () => console.log('video emptied'))
+  video.addEventListener('ended', () => console.log('video ended'))
+  video.addEventListener('error', () => console.log('video error'))
+  video.addEventListener('loadeddata', () => console.log('video loadeddata'))
+  video.addEventListener('loadedmetadata', () => console.log('video loadedmetadata'))
+  video.addEventListener('loadstart', () => console.log('video loadstart'))
+  video.addEventListener('pause', () => console.log('video pause'))
+  video.addEventListener('play', () => console.log('video play'))
+  video.addEventListener('playing', () => console.log('video playing'))
+  video.addEventListener('progress', () => console.log('video progress'))
+  video.addEventListener('ratechange', () => console.log('video ratechange'))
+  video.addEventListener('resize', () => console.log('video resize'))
+  video.addEventListener('seeked', () => console.log('video seeked'))
+  video.addEventListener('seeking', () => console.log('video seeking'))
+  video.addEventListener('stalled', () => console.log('video stalled'))
+  video.addEventListener('suspend', () => console.log('video suspend'))
+  video.addEventListener('timeupdate', () => console.log('video timeupdate'))
+  video.addEventListener('volumechange', () => console.log('video volumechange'))
+  video.addEventListener('waiting', () => console.log('video waiting'))
+
   window.stream = stream; // make variable available to browser console
   video.srcObject = stream;
 }
